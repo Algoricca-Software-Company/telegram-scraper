@@ -6,10 +6,10 @@ import pandas as pd
 from telethon.sync import TelegramClient
 
 # setup / change only the first time you use it
-username = 'username'  # here you put your username from your telegram account
-phone = '+55...'  # here you put your phone number from your telegram account
-api_id = ''  # here you put your api_id from https://my.telegram.org/apps
-api_hash = ''  # here you put your api_hash from https://my.telegram.org/apps
+username = 'Felipe Antunes'  # here you put your username from your telegram account
+phone = '+5521981022053'  # here you put your phone number from your telegram account
+api_id = '20916318'  # here you put your api_id from https://my.telegram.org/apps
+api_hash = '9bb1551e4a5f08b2f836e7332fcf9994'  # here you put your api_hash from https://my.telegram.org/apps
 data = []
 url = ''
 index = 1
@@ -72,7 +72,9 @@ async def main():
         columns = ['Scraping ID', 'Group', 'Author ID', 'Content', 'Date', 'Message ID', 'Author', 'Views', 'Reactions', 'Shares', 'Media', 'Comments']
         df = pd.DataFrame(data, columns=columns)
         
-        df
+        # Saving DataFrame to JSON
+        df.to_json('telegram_scraping_results.json', orient='records', lines=True)
+        print('Data saved to telegram_scraping_results.json')
 
 
 asyncio.run(main())
